@@ -117,4 +117,17 @@ npm i  style-loader css-loader -D
 Divide the components into different module
 
 10. Routing
-npm install react-router
+npm install react-router@2.8.1
+
+```
+var App = React.createClass({
+    render: function(){
+        return(
+            <Router history={browserHistory}>
+                <Route path={'/'} component={TodoComponent}></Route>
+                <Route path={'/about'} component={About}></Route>
+            </Router>
+        );
+    }
+});
+```
