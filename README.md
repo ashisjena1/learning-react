@@ -110,3 +110,8 @@ var TodoComponent = React.createClass({
     }//render
 });
 ```
+
+7. Modularizing code
+npm i  style-loader css-loader -D
+
+Divide the components into different module
