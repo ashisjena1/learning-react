@@ -115,3 +115,6 @@ var TodoComponent = React.createClass({
 npm i  style-loader css-loader -D
 
 Divide the components into different module
+
+10. Routing
+npm install react-router
