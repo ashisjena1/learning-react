@@ -81,3 +81,6 @@ ReactDOM.render(<TodoComponent />, document.getElementById('todo-wrapper'));
 ```
 
 also add "<div id="todo-wrapper"></div>" in index.html file
+
+3. Props
+props are used to pass data into component whicch is used for display. 
