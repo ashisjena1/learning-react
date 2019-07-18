@@ -23592,7 +23592,7 @@
 	                ),
 	                React.createElement(
 	                    'span',
-	                    { className: 'item-delete', onClick: this.handleDelete },
+	                    { className: 'item-remove', onClick: this.handleDelete },
 	                    ' x '
 	                )
 	            )

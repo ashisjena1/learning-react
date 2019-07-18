@@ -3,7 +3,9 @@ var ReactDOM = require('react-dom');
 require('./css/index.css');
 
 // Module requires
-var TodoItem = require('./todoItem')
+var TodoItem = require('./todoItem');
+var AddItem = require('./addItem');
+
 //Create a component
 var TodoComponent = React.createClass({
     getInitialState: function(){
@@ -16,10 +18,11 @@ var TodoComponent = React.createClass({
         todos = todos.map((item,index) => <TodoItem key={index} item={item} onDelete={this.onDelete}/>)
         return(
             <div id="todo-list">
-            <p onClick={this.clicked}>The busiest people have the most leisure...</p>
-            <ul>
-                {todos}
-            </ul>
+                <p onClick={this.clicked}>The busiest people have the most leisure...</p>
+                <ul>
+                    {todos}
+                </ul>
+                <AddItem onAdd={this.onAdd}/>
         </div>
         );
     },//render
@@ -31,6 +34,13 @@ var TodoComponent = React.createClass({
 
     onDelete: function(item){
         var updatedTodos = this.state.todos.filter((val,index) => item !== val)
+        this.setState({
+            todos: updatedTodos
+        });
+    },
+    onAdd: function(item){
+        var updatedTodos = this.state.todos;
+        updatedTodos.push(item);
         this.setState({
             todos: updatedTodos
         });
