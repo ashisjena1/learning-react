@@ -84,3 +84,29 @@ also add "<div id="todo-wrapper"></div>" in index.html file
 
 3. Props
 props are used to pass data into component whicch is used for display. 
+```
+ReactDOM.render(<TodoComponent mssg="I like Cheese" cheese={myCheese} />, document.getElementById('todo-wrapper'));
+```
+
+4.State
+```
+var TodoComponent = React.createClass({
+    getInitialState: function(){
+        return {
+            todos: ['wash up', 'eat some cheese', 'take a nap']
+        }
+    }, // getInitialState
+    render: function(){
+        return(
+            <div id="todo-list">
+            <p>The busiest people have the most leisure...</p>
+            <ul>
+                <li>{this.state.todos[0]}</li>
+                <li>{this.state.todos[1]}</li>
+                <li>{this.state.todos[2]}</li>
+            </ul>
+        </div>
+        );
+    }//render
+});
+```
