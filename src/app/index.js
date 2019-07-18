@@ -5,19 +5,12 @@ var ReactDOM = require('react-dom');
 var TodoComponent = React.createClass({
     getInitialState: function(){
         return {
-            todos: ['wash up', 'eat some cheese', 'take a nap',"go & sleep"],
-            age : 30
+            todos: ['wash up', 'eat some cheese', 'take a nap',"go & sleep"]
         }
     }, // getInitialState
     render: function(){
-        var ager = setTimeout(function() {
-            this.setState({
-                age:35
-            });
-        }.bind(this),3000)
-
         var todos = this.state.todos;
-        todos = todos.map((item,index) => <TodoItem key={index} item={item} />)
+        todos = todos.map((item,index) => <TodoItem key={index} item={item} onDelete={this.onDelete}/>)
         return(
             <div id="todo-list">
             <p onClick={this.clicked}>The busiest people have the most leisure...</p>
@@ -31,7 +24,16 @@ var TodoComponent = React.createClass({
     //Custom functions
     clicked: function(){
         console.log('You clicked');
+    },
+
+    onDelete: function(item){
+        var updatedTodos = this.state.todos.filter((val,index) => item !== val)
+        this.setState({
+            todos: updatedTodos
+        });
     }
+
+    
 });
 
 // Creatr TodoItem component
@@ -41,9 +43,14 @@ var TodoItem = React.createClass({
             <li>
                 <div className="todo-item">
                     <span className="itemName">{this.props.item}</span>
+                    <span className="item-delete" onClick={this.handleDelete}> x </span>
                 </div>
             </li>
         )
+    },
+    // custom functions
+    handleDelete: function(){
+        this.props.onDelete(this.props.item);
     }
 })
 //put component into html page
