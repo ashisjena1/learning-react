@@ -20,20 +20,18 @@ var TodoComponent = React.createClass({
         todos = todos.map((item,index) => <TodoItem key={index} item={item} />)
         return(
             <div id="todo-list">
-            <p>The busiest people have the most leisure...</p>
-            <p>{this.state.age}</p>
-            <ul>
-                <li>{this.state.todos[0]}</li>
-                <li>{this.state.todos[1]}</li>
-                <li>{this.state.todos[2]}</li>
-            </ul>
-            <br/>
+            <p onClick={this.clicked}>The busiest people have the most leisure...</p>
             <ul>
                 {todos}
             </ul>
         </div>
         );
-    }//render
+    },//render
+
+    //Custom functions
+    clicked: function(){
+        console.log('You clicked');
+    }
 });
 
 // Creatr TodoItem component
